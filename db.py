@@ -33,5 +33,22 @@ def find_all_users():
 
     return users
 
+
+def add_users(name, age):
+    """新規顧客を追加する関数なり"""
+    import sqlite3
+
+    conn = sqlite3.connect("crm.sqlite")
+    cursor = conn.cursor()
+
+    sql = "INSERT INTO customers (name, age) VALUES (?, ?)"
+
+    conn.execute(sql, (name, age))
+
+    conn.commit()
+
+    conn.close()
+
+
 if __name__ == "__main__":
     init_db()

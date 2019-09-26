@@ -1,4 +1,4 @@
-from db import find_all_users
+from db import find_all_users, add_users
 
 
 def main():
@@ -23,12 +23,20 @@ def main():
         elif command == "a":
             print('新規の顧客情報を追加します')
 
+            name = input("New customer's name? > ")
+            age = input("New customer's age? > ")
+
+            add_users(name, age)
+
+            print(f"Add new customer {name}")
+
         else:
             print(f'{command}: command not found')
 
         command = input('Your command > ').lower()
 
     print('Bye')
+
 
 if __name__ == "__main__":
     main()
